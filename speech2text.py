@@ -8,15 +8,15 @@ bot = telebot.TeleBot('6064128961:AAGigUpInPOnKJ8ThHAbq47rakXaFsI4VAI')
 
 
 # Обработчик сообщений с цифрой от 0 до 10
-@bot.message_handler(func=lambda message: message.text.isdigit() and int(message.text) >= 0 and int(message.text) <= 10)
-def handle_rating(message):
-    bot.send_message(message.chat.id, "Введите оценку от 0 до 10:")
-    bot.register_next_step_handler(message, get_rating)
+#@bot.message_handler(func=lambda message: message.text.isdigit() and int(message.text) >= 0 and int(message.text) <= 10)
+#def handle_rating(message):
+#    bot.send_message(message.chat.id, "Введите оценку от 0 до 10:")
+#    bot.register_next_step_handler(message, get_rating)
 
-def get_rating(message):
-    number = int(message.text)
-    bot.send_message(message.chat.id, f"Вы отправили оценку: {number}")
-    return str(number)
+#def get_rating(message):
+#    number = int(message.text)
+#    bot.send_message(message.chat.id, f"Вы отправили оценку: {number}")
+#    return str(number)
 
 
 # Обработчик сообщений с цифрой от 0 до 10
@@ -70,8 +70,8 @@ def handle_voice_message(message):
     with open(text_file_path, 'w', encoding='utf-8') as text_file:
         # Запись оценки в начало файла текстового сообщения
 
-        rating = get_rating(message)
-        text_with_rating = f"Оценка: {rating}\n{text}"
+ #       rating = get_rating(message)
+        text_with_rating = f"Оценка:" #{rating}\n{text}"
 
         #text_with_rating = f"Оценка: {get_rating(message)}\n{text}"
         text_file.write(text_with_rating)
